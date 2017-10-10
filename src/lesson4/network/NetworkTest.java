@@ -14,8 +14,7 @@ public class NetworkTest {
 
         Network2 n1 = new Network2();
         Network2 n2 = new Network2();
-        Network2.Member jane = net1.new Member("jane");
-        Network2 n2 = ne
+        //Network2.Member jane = net1.new Member("jane");
 
 
 
