@@ -7,7 +7,7 @@ public class Banker {
         Money money = req.getMoney();
         if (Banker.isMinimumLimit(money)) return false ;
 
-        return false;
+        return true;
     }
     public static final Money MINIMUM = new Money(Currency.WON, 100);
 

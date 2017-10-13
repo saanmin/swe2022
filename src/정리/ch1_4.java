@@ -1,7 +1,9 @@
 package 정리;
 
 import java.math.BigInteger;
+/*
 import java.util.Random;
+
 
 public class ch1_4 {
     static public void main(String[] arg){
@@ -27,3 +29,4 @@ public class ch1_4 {
     }
 
 }
+ */

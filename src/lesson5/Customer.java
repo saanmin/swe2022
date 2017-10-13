@@ -28,7 +28,11 @@ public class Customer {
         }
     }
     public boolean deposit(Banker b, Currency c, int q){
-        return b.requestDeposit(new Deposit(this, new Money(c,q), new Account()));
+        return b.requestDeposit(new Deposit(
+                this,
+                new Money(c,q),
+                new Account() //사실 Account에는 계좌번호, 은행 예금주 등등을 받아야겠지
+        ));
 
     }
 

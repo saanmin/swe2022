@@ -22,5 +22,4 @@ public class Money {
         return currency.changeMoney(this.currency, this.quantity);
     }
 
-
 }
