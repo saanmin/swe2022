@@ -1,4 +1,4 @@
-package 정리;
+package 정리.chapter1;
 
 import java.util.Scanner;
 
