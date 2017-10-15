@@ -16,7 +16,7 @@ public class ch1_7 {
         }
 
         int j = 1;
-        int sum1 = 0
+        int sum1 = 0;
         while (j <= 20){
             j = j +1;
             int next4 = generator.nextInt(10);
