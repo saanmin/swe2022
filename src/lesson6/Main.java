@@ -48,6 +48,6 @@ public class Main {
 
         //람다보고 중첩클래스로 바꾸던지 중첩클래스를 람다표현식으로 바꾸던지 하는 거 정리
 
-        Employee me = new Employee(100), you = new Employee(500)
+        Employee me = new Employee(100), you = new Employee(500);
     }
 }
