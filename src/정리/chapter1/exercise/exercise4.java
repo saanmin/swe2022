@@ -17,6 +17,9 @@ public class exercise4 {
         System.out.println(a2);
         System.out.println(b2);
 
+        int x = (int) b2;
+        System.out.println(b2);
+
         double c2 = Double.MAX_VALUE;
         double d2 = Double.MIN_VALUE;
         System.out.println(c2);
@@ -26,6 +29,13 @@ public class exercise4 {
         float e3 = Float.MIN_VALUE;
         System.out.println(e2);
         System.out.println(e3);
+
+        double f1 = Double.POSITIVE_INFINITY;
+        double f2 = Double.NEGATIVE_INFINITY;
+        System.out.println(f1);
+        System.out.println(f2);
+
+
 
     }
 
