@@ -22,7 +22,7 @@ public class TodoList {
 
     public TodoList(String name){ //생성자
         this.listName = name;
-        Theme defaultTheme = new Theme();
+        Theme defaultTheme = new Theme("");
         this.listTheme = defaultTheme;
         this.todoTasks = new ArrayList<>();
         this.listSorted = 0;
@@ -48,7 +48,7 @@ public class TodoList {
     }
     */
 
-    public void getTodoTasks(){
+    public void getTodoTasks(){ //현재까지의 상황 확인용
         int k = this.todoTasks.size();
         System.out.println("ListName : " + this.getListname());
         System.out.println("List Theme : "+ this.getListTheme().toString());
