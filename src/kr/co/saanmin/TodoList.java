@@ -23,7 +23,7 @@ public class TodoList {
         this.listName = name;
         Theme defaultTheme = new Theme();
         this.listTheme = defaultTheme;
-        this.todoTasks = null;
+        this.todoTasks = new ArrayList<>();
         this.listSorted = 0;
     }
 
@@ -34,9 +34,10 @@ public class TodoList {
     public void setTheme(Theme newtheme) {
         this.listTheme = newtheme;
     }
-    public void addTask(String name1, String d1){
-        TodoTask t1 = new TodoTask(name1, d1 );
-        todoTasks.add(t1);
+
+
+    public void addtoTodoTasks(TodoTask t1){
+        this.todoTasks.add(t1);
     }
 
     public void doSort(int howtosort){
@@ -44,5 +45,13 @@ public class TodoList {
         if (howtosort == 0) return ; //ArrayList sort하는 방법찾기;
     }
 
+    public void gettodoTasks(){
+        int k = this.todoTasks.size();
+        for(int i=0; i<k ; i++){
+            System.out.println("Task" + (i+1) + " : " + todoTasks.get(i).getTaskname());
+            System.out.println("deadline of Task"+i+ " : "+todoTasks.get(i).getDeadline());
+            System.out.println("Is it done ? " +todoTasks.get(i).getdone());
+
+        }
     }
 }
