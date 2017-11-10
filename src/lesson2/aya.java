@@ -1,6 +1,4 @@
-package c0922;
-
-import java.util.Random;
+package lesson2;
 
 public class aya {
 
