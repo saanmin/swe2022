@@ -5,6 +5,7 @@ TodoList
 인스턴스변수 : 이름(String, 생성자) , 테마(Theme, 기본) , 태스크리스트(ArrayList, null)
             정렬방향(데이터타입, 0(unsorted))
 메서드 : 생성자, 이름변경(setName), 테마변경(setTheme), 태스크리스트추가(addTask), 정렬(doSort)
+       테스크리스트리턴
  */
 
 import java.util.ArrayList;
@@ -40,10 +41,12 @@ public class TodoList {
         this.todoTasks.add(t1);
     }
 
+    /*
     public void doSort(int howtosort){
         System.out.println("내림차순 : 0, 오름차순 : 1,");
         if (howtosort == 0) return ; //ArrayList sort하는 방법찾기;
     }
+    */
 
     public void gettodoTasks(){
         int k = this.todoTasks.size();
@@ -51,6 +54,7 @@ public class TodoList {
             System.out.println("Task" + (i+1) + " : " + todoTasks.get(i).getTaskname());
             System.out.println("deadline of Task"+i+ " : "+todoTasks.get(i).getDeadline());
             System.out.println("Is it done ? " +todoTasks.get(i).getdone());
+            System.out.println("-------------------");
 
         }
     }

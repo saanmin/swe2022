@@ -26,9 +26,9 @@ public class TodoTask {
     }
 
     public void setDeadline(int year1, int month1, int date1){
-        this.deadline.setYear(year1);
+        this.deadline.setYear(year1-1900);
         this.deadline.setDate(date1);
-        this.deadline.setMonth(month1);
+        this.deadline.setMonth(month1-1);
     }
 
     public void setDone(boolean status){ //status는 false(미완료) true(완료)의 값을 받음
@@ -42,7 +42,11 @@ public class TodoTask {
         return this.taskname;
     }
     public String getDeadline(){
-        return this.deadline.toString();
+        int year1 = deadline.getYear() + 1900;
+        int month1 = deadline.getMonth() + 1 ;
+        int date1 = deadline.getDate();
+        String yyyymmdd = year1 + "/" +month1 +"/" +date1;
+        return yyyymmdd;
     }
     public Boolean getdone() { return this.done; }
 
