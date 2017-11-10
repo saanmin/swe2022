@@ -9,9 +9,7 @@ TodoList
  */
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Date;
 
 public class TodoList {
     //인스턴스변수
@@ -45,11 +43,15 @@ public class TodoList {
     }
 
     /*
-    public void doSort(int howtosort){
-        System.out.println("내림차순 : 0, 오름차순 : 1,");
-        if (howtosort == 0) return ; //ArrayList sort하는 방법찾기;
+    public void doSort(){
+        Collections.sort(todoTasks);
+        this.listSorted = true;
     }
+
+    todotask에서 implements Comparable<TodoTask> 해서 구현뒤 메서드 하고 나중에 확인
+
     */
+
 
 
 
@@ -74,5 +76,8 @@ public class TodoList {
 
     private String getListname() {
         return this.listName;
+    }
+
+
     }
 }
