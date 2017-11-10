@@ -18,16 +18,18 @@ public class TodoList {
     private String listName; //mutable
     private Theme listTheme; //mutable
     private ArrayList<TodoTask> todoTasks; //mutable
-    private int listSorted; //mutable
+    private boolean listSorted; //mutable
 
-    public TodoList(String name){ //생성자
+    //생성자
+    public TodoList(String name){
         this.listName = name;
-        Theme defaultTheme = new Theme("");
+        Theme defaultTheme = new Theme();
         this.listTheme = defaultTheme;
         this.todoTasks = new ArrayList<>();
-        this.listSorted = 0;
+        this.listSorted = false;
     }
 
+    //메서드
     public void setListName(String name1){
         this.listName = name1;
     }
@@ -39,6 +41,7 @@ public class TodoList {
 
     public void addtoTodoTasks(TodoTask t1){
         this.todoTasks.add(t1);
+        this.listSorted = false; //새로운 테스크가 추가되는 순간 sorted는 false됨
     }
 
     /*
@@ -47,6 +50,8 @@ public class TodoList {
         if (howtosort == 0) return ; //ArrayList sort하는 방법찾기;
     }
     */
+
+
 
     public void getTodoTasks(){ //현재까지의 상황 확인용
         int k = this.todoTasks.size();
@@ -60,6 +65,8 @@ public class TodoList {
 
         }
     }
+
+    //인스턴스변수반환
 
     public Theme getListTheme() {
         return listTheme;

@@ -9,8 +9,9 @@ public class Demo {
         javatask.setDone(true);
         list1.setListName("javaAssignments");
         javatask.setDeadline(2017,5,6);
-        Theme t2 = new Theme("red");
-        list1.setTheme(t2);
+        Theme t1 = new Theme();
+        t1.settingThemecolor("red");
+        list1.setTheme(t1);
         list1.getTodoTasks();
 
 

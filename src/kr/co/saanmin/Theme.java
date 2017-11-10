@@ -14,27 +14,27 @@ public class Theme {
     private ThemeImage backimage;
     private Color themecolor;
 
-    public Theme(String a){
+    //생성자
+    public Theme(){
+        themecolor = Color.blue;
+    }
+
+    //색 변경 메서드
+    public void settingThemecolor(String a){
+        this.themecolor = Color.blue;
+
         if (a.equalsIgnoreCase("red")){
             this.themecolor = Color.red;
         }
-        else if (a.equalsIgnoreCase("blue")){
-            this.themecolor = Color.blue;
-        }
-        else if (a.equalsIgnoreCase("yellow")){
+
+        if (a.equalsIgnoreCase("yellow")){
             this.themecolor = Color.yellow;
         }
-        else{
-            this.themecolor = Color.blue;
-        }
     }
 
 
-/*
-    public void settingColor(String wantedcolor){
 
-    }
-*/
+
     @Override
     public String toString() {
         return themecolor.toString();
