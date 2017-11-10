@@ -4,8 +4,8 @@ package kr.co.saanmin;
 TodoList
 인스턴스변수 : 이름(String, 생성자) , 테마(Theme, 기본) , 태스크리스트(ArrayList, null)
             정렬방향(데이터타입, 0(unsorted))
-메서드 : 생성자, 이름변경(setName), 테마변경(setTheme), 태스크리스트추가(addTask), 정렬(doSort)
-       테스크리스트리턴
+메서드 : 생성자, 이름변경(setName), 테마변경(setTheme), 태스크리스트추가(addtoTodoTasks), 정렬(doSort)
+       테스크리스트리턴(getTodoTasks)
  */
 
 import java.util.ArrayList;
@@ -48,8 +48,10 @@ public class TodoList {
     }
     */
 
-    public void gettodoTasks(){
+    public void getTodoTasks(){
         int k = this.todoTasks.size();
+        System.out.println("ListName : " + this.getListname());
+        System.out.println("List Theme : "+ this.getListTheme().toString());
         for(int i=0; i<k ; i++){
             System.out.println("Task" + (i+1) + " : " + todoTasks.get(i).getTaskname());
             System.out.println("deadline of Task"+i+ " : "+todoTasks.get(i).getDeadline());
@@ -57,5 +59,13 @@ public class TodoList {
             System.out.println("-------------------");
 
         }
+    }
+
+    public Theme getListTheme() {
+        return listTheme;
+    }
+
+    private String getListname() {
+        return this.listName;
     }
 }

@@ -9,24 +9,20 @@ package kr.co.saanmin;
 import java.awt.*;
 
 public class Theme {
-    /*
-    private 데이터타입 backimage
-    */
-
+    private ThemeImage backimage;
     private Color themecolor;
 
     public Theme(){
         this.themecolor = Color.blue;
 
     }
-
-    public void setColor(String wantedcolor){
-        this.themecolor = Color.decode(wantedcolor);
+/*
+    public void settingColor(String wantedcolor){
 
     }
-
-
-
-
-
+*/
+    @Override
+    public String toString() {
+        return themecolor.toString();
+    }
 }
