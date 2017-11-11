@@ -12,7 +12,7 @@ TodoTask
 
 import java.util.Date;
 
-public class TodoTask {
+public class TodoTask implements Comparable<TodoTask> {
     private String taskname; //mutable
     private Date deadline; //mutable
     private boolean done; //mutable
@@ -53,5 +53,9 @@ public class TodoTask {
     }
     public Boolean getdone() { return this.done; }
 
-
+    @Override
+    public int compareTo(TodoTask o) {
+        int a = this.getTaskname().compareTo(o.getTaskname());
+        return a;
+    }
 }
