@@ -56,6 +56,7 @@ public class Demo {
         list1.getListTheme().settingThemecolor(TodoThemeColor.PURPLE);
         list1.getListTheme().settingThemeImage(TodoThemeImage.AIRPLANE);
         list1.getListInfo();
+
         //setTheme으로 한번에 구현하고싶을 때는?
         TodoTheme favoriteTheme = new TodoTheme(TodoThemeColor.RED, TodoThemeImage.HOUSE);
         list1.setTheme(favoriteTheme);

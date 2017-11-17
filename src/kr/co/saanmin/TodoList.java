@@ -43,6 +43,7 @@ public class TodoList {
         //this.listSorted = false; //새로운 테스크가 추가되는 순간 sorted는 false됨
     }
 
+    //sorting방법이 4가지 밖에 없어서 enum한번해봄. if쓰느니 차라리 switch.
     public enum TodoTaskSortingMethodop {
         SORTINGMETHOD_BY_TN,SORTINGMETHOD_BY_DL,SORTINGMETHOD_BY_GD,SORTINGMETHOD_BY_ISDONE;
     }
@@ -79,7 +80,9 @@ public class TodoList {
         this.todoTasks.remove(t1);
     }
 
-    public void getListInfo() { //현재까지의 상황 확인용
+
+    //현재까지의 상황 확인용 : print로 상태보기
+    public void getListInfo() {
         System.out.println("* * * * * * * * * * * * *");
         System.out.println("ListName : " + this.getListname());
         System.out.println("List TodoTheme : " + this.getListTheme().toString());

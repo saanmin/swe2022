@@ -86,7 +86,10 @@ public class TodoTask {
         return this.deadline;}
 
     public Boolean getdone() { return this.isDone; }
+
+    //밖에서 쓸필요없음. 걍 이쁘게 프린트해서 보려고 만든 메서드
     private String forPrintDeadline(){
+
         if (deadline == null) return "";
 
         int year1 = deadline.getYear() + 1900;
@@ -109,6 +112,7 @@ public class TodoTask {
     public static void main (String[] arg){
         TodoTask t10 = new TodoTask("yoyo");
         t10.getTodoTaskInfo();
+        //deadline, ReminderDate 설정 후, 당일날 알람이 울리는지 확인.
         t10.setDeadline(2017,11,18);
         t10.setReminderDate(2017,11,17);
         System.out.println(t10.isAlarm());

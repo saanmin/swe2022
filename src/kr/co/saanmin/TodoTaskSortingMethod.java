@@ -6,11 +6,11 @@ package kr.co.saanmin;
 3 : 만든날짜순으로
 4 : 미완료된순으로
 
-지금 이거를 순서 오름차순 혹은 내림차순으로 할지에 대한건 어디서 설정해놓을까? doSort에서
+지금 이거를 순서 오름차순 혹은 내림차순으로 할지에 대한건 어디서 설정해놓을까? ....
+....TodoList에서 걍 doReverseSort라는 메서드하나 구현해서 거꾸로 뒤집자
  */
 
 import java.util.Comparator;
-import java.util.Date;
 
 class TNSorting implements Comparator<TodoTask>{
     @Override //TodoTask의 taskname 알파벳순으로
