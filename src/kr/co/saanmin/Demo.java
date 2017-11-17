@@ -22,8 +22,8 @@ public class Demo {
         list1.getListInfo();
         saanmin.addTodoList(list1);
 
-        saanmin.getTodoList();
-
+        //saanmin.getTodoList();
+        /*
         TodoList list2 = new TodoList("things to buy");
         TodoTask s1 = new TodoTask("apple 4");
         TodoTask s2 = new TodoTask("shampoo");
@@ -41,6 +41,7 @@ public class Demo {
 
 
         saanmin.getTodoList();
+        */
 
 
         /*
