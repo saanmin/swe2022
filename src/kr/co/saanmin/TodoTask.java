@@ -45,6 +45,7 @@ public class TodoTask {
         this.isDone = status;
     }
 
+    //setDeadline메서드와 동일하게 구현되어서...밑에처럼 공통인 부분 묶을까말까..
     public void setReminderDate(int year1, int month1, int date1){
         this.reminderDate = new Date();
         this.reminderDate.setYear(year1-1900);
@@ -85,16 +86,21 @@ public class TodoTask {
         if (deadline == null) return null;
         return this.deadline;}
 
+    public Date getReminderDate() {
+        if (reminderDate == null) return null;
+        return reminderDate;
+    }
+
     public Boolean getdone() { return this.isDone; }
 
     //밖에서 쓸필요없음. 걍 이쁘게 프린트해서 보려고 만든 메서드
-    private String forPrintDeadline(){
+    private String forPrintTheDate(Date a){
 
-        if (deadline == null) return "";
+        if (a == null) return "";
 
-        int year1 = deadline.getYear() + 1900;
-        int month1 = deadline.getMonth() + 1 ;
-        int date1 = deadline.getDate();
+        int year1 = a.getYear() + 1900;
+        int month1 = a.getMonth() + 1 ;
+        int date1 = a.getDate();
         String yyyymmdd = year1 + "/" +month1 +"/" +date1;
         return yyyymmdd;
 
@@ -102,7 +108,8 @@ public class TodoTask {
 
     public void getTodoTaskInfo(){
         System.out.println("Taskname : " + this.getTaskname());
-        System.out.println("deadline : " + this.forPrintDeadline());
+        System.out.println("deadline : " + this.forPrintTheDate(this.deadline));
+        //System.out.println("reminderDate : "+this.forPrintTheDate(this.reminderDate));
         System.out.println("Is it done ? " + this.getdone());
         System.out.println("-------------------");
 
@@ -115,6 +122,7 @@ public class TodoTask {
         //deadline, ReminderDate 설정 후, 당일날 알람이 울리는지 확인.
         t10.setDeadline(2017,11,18);
         t10.setReminderDate(2017,11,17);
+        t10.getTodoTaskInfo();
         System.out.println(t10.isAlarm());
 
     }
