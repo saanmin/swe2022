@@ -1,4 +1,3 @@
 package kr.co.saanmin;
 
-public class TodoThemeImage {
-}
+public enum TodoThemeImage {MOUNTAIN, SEOULTOWER, BUS, AIRPLANE, HOUSE, NTH}

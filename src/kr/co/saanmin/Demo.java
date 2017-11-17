@@ -2,7 +2,7 @@ package kr.co.saanmin;
 
 public class Demo {
     public static void main(String[] arg){
-        User saanmin = new User("saanmin");
+        App saanmin = new App("saanmin");
 
         TodoList list1 = new TodoList("Assignments");
         TodoTask t1 = new TodoTask("java1110");
