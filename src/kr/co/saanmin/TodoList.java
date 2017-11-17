@@ -24,7 +24,7 @@ public class TodoList {
         TodoTheme defaultTheme = new TodoTheme();
         this.listTheme = defaultTheme;
         this.todoTasks = new ArrayList<>();
-        this.listSorted = false;
+        //this.listSorted = false;
     }
 
     //메서드
@@ -39,17 +39,16 @@ public class TodoList {
 
     public void addtoTodoTasks(TodoTask t1) {
         this.todoTasks.add(t1);
-        this.listSorted = false; //새로운 테스크가 추가되는 순간 sorted는 false됨
+        //this.listSorted = false; //새로운 테스크가 추가되는 순간 sorted는 false됨
     }
 
 
     public void doSort(){
-        Collections.sort(todoTasks);
-        this.listSorted = true;
+
     }
 
     /*
-    todotask에서 implements Comparable<TodoTask> 해서 구현뒤 메서드 하고 나중에 확인
+    TodoTaskSortingMethod에서 implements Comparator<TodoTask> 해서 구현뒤 메서드 하고 나중에 확인
     */
 
     public void deleteTodoTask(TodoTask t1){
@@ -57,16 +56,6 @@ public class TodoList {
         this.todoTasks.remove(t1);
     }
 
-    /*
-
-    public void deleteTodoList() {
-    ? 이 메서드는 상위의 클래스에서 지워야 가능한거 같아서...전체 list를 Own하고 있는
-    새로운 클래스인 User라는 클래스를 만들었고 User클래스는 이러한 TodoList를 ArrayList형태로 소유.
-    여기서 removeTodoList라는 메서드를 가지고 있고 이는 AL에서 삭제하는 기능
-
-    }
-
-     */
 
     public void getListInfo() { //현재까지의 상황 확인용
         int k = this.todoTasks.size();

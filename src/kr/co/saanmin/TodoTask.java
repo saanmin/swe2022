@@ -2,7 +2,7 @@ package kr.co.saanmin;
 
 /* <구현방식>
 TodoTask
-인스턴스변수(데이터타입, 기본값) : 이름(String, 생성자), 완료날짜(Date, 생성시), 완료여부(Boolean, false)
+인스턴스변수(데이터타입, 기본값) : 이름(String, 생성자), 생성날짜(Date, 생성지 지정), 완료날짜(Date, 생성시), 완료여부(Boolean, false)
 메서드 : 생성자(TodoTask), 날짜변경(setDeadline), 완료상태변경(setDone), 이름변경(setTaskName),
 
 가정1 : deadline 즉 완료날짜는 연,월,일만 설정할 수 있고 시간 단위는 안된다고 가정.
@@ -10,12 +10,14 @@ TodoTask
  */
 
 
+import java.util.Comparator;
 import java.util.Date;
 
-public class TodoTask implements Comparable<TodoTask> {
+public class TodoTask {
     private String taskname; //mutable
     private Date deadline; //mutable
     private boolean done; //mutable
+    private final Date generatedDate; //immutable
 
     //생성자
     public TodoTask(String taskname){
@@ -23,6 +25,7 @@ public class TodoTask implements Comparable<TodoTask> {
         this.taskname = taskname;
         this.deadline = new Date(); //생성시간을 deadline으로 세팅
         this.done = false; //생성시에는 미완료상태로 시작
+        this.generatedDate = new Date();
     }
 
     //메서드
@@ -44,6 +47,7 @@ public class TodoTask implements Comparable<TodoTask> {
     public String getTaskname(){
         return this.taskname;
     }
+    public Date getGeneratedDate(){return this.generatedDate;}
     public String getDeadline(){
         int year1 = deadline.getYear() + 1900;
         int month1 = deadline.getMonth() + 1 ;
@@ -52,11 +56,5 @@ public class TodoTask implements Comparable<TodoTask> {
         return yyyymmdd;
     }
     public Boolean getdone() { return this.done; }
-
-    @Override
-    public int compareTo(TodoTask o) {
-        int a = this.getTaskname().compareTo(o.getTaskname());
-        return a;
-    }
 
 }
