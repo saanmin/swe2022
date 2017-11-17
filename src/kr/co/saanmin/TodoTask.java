@@ -10,33 +10,32 @@ TodoTask
  */
 
 
-import java.util.Comparator;
 import java.util.Date;
 
 public class TodoTask {
     private String taskname; //mutable
     private Date deadline; //mutable
-    private boolean done; //mutable
+    private boolean isDone; //mutable
     private final Date generatedDate; //immutable
 
     //생성자
     public TodoTask(String taskname){
 
         this.taskname = taskname;
-        this.deadline = new Date(); //생성시간을 deadline으로 세팅
-        this.done = false; //생성시에는 미완료상태로 시작
+        this.isDone = false; //생성시에는 미완료상태로 시작
         this.generatedDate = new Date();
     }
 
     //메서드
     public void setDeadline(int year1, int month1, int date1){
+        this.deadline = new Date();
         this.deadline.setYear(year1-1900);
         this.deadline.setDate(date1);
         this.deadline.setMonth(month1-1);
     }
 
     public void setDone(boolean status){ //status는 false(미완료) true(완료)의 값을 받음
-        this.done = status;
+        this.isDone = status;
     }
 
     public void setTaskName(String settingname){
@@ -55,6 +54,6 @@ public class TodoTask {
         String yyyymmdd = year1 + "/" +month1 +"/" +date1;
         return yyyymmdd;
     }
-    public Boolean getdone() { return this.done; }
+    public Boolean getdone() { return this.isDone; }
 
 }

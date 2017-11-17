@@ -42,25 +42,31 @@ public class TodoList {
         //this.listSorted = false; //새로운 테스크가 추가되는 순간 sorted는 false됨
     }
 
-
-    public void doSort(){
-
+    public enum TodoTaskSortingMethodop {
+        SORTINGMETHOD_BY_TN,SORTINGMETHOD_BY_DL,SORTINGMETHOD_BY_GD,SORTINGMETHOD_BY_ISDONE;
     }
 
-    /*
-    TodoTaskSortingMethod에서 implements Comparator<TodoTask> 해서 구현뒤 메서드 하고 나중에 확인
-    */
+    public void doSort(TodoTaskSortingMethodop methodOp){
+        switch (methodOp){
+            case SORTINGMETHOD_BY_DL:Collections.sort(this.todoTasks , new DLSorting()); break;
+            case SORTINGMETHOD_BY_GD:Collections.sort(this.todoTasks , new GDSorting()); break;
+            case SORTINGMETHOD_BY_ISDONE:Collections.sort(this.todoTasks , new IsDoneSorting()); break;
+            case SORTINGMETHOD_BY_TN:Collections.sort(this.todoTasks , new TNSorting()); break;
+        }
+    }
 
     public void deleteTodoTask(TodoTask t1){
-        if (!(this.todoTasks.contains(t1)) ) {System.out.println("존재하지않는 항목");}
+        if (!(this.todoTasks.contains(t1)) ) {System.out.println("존재하지 않는 항목");}
         this.todoTasks.remove(t1);
     }
 
-
     public void getListInfo() { //현재까지의 상황 확인용
         int k = this.todoTasks.size();
+        System.out.println("* * * * * * * * * * * * *");
         System.out.println("ListName : " + this.getListname());
         System.out.println("List TodoTheme : " + this.getListTheme().toString());
+        if (this.todoTasks.isEmpty()){System.out.println("목록이 비어있습니다. 할일을 추가하세요");}
+        else {
         for (int i = 0; i < k; i++) {
             System.out.println("Task" + (i + 1) + " : " + todoTasks.get(i).getTaskname());
             System.out.println("deadline of Task" + i + " : " + todoTasks.get(i).getDeadline());
@@ -68,8 +74,7 @@ public class TodoList {
             System.out.println("-------------------");
 
         }
-    }
-
+    }}
 
     //인스턴스변수반환
 

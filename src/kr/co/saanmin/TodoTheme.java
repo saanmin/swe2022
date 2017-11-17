@@ -30,28 +30,12 @@ public class TodoTheme {
     //색 변경 메서드
     public void settingThemecolor(TodoThemeColor a){
         this.themeColor = a;
-        /*
-        switch (a) {
-            case RED: this.themeColor = TodoThemeColor.RED; break;
-            case BLUE: this.themeColor = TodoThemeColor.BLUE; break;
-            case GREEN: this.themeColor = TodoThemeColor.GREEN; break;
-            case PURPLE: this.themeColor = TodoThemeColor.PURPLE; break;
-            case SKYBLUE: this.themeColor = TodoThemeColor.SKYBLUE; break;
-        }*/
     }
 
     //그림변경메서드 : enum ...switch로 구현해봄(사실 같은거).
     public void settingThemeImage(TodoThemeImage b){
         this.themeImage = b;
-        /*switch 연습
-        switch (b){
-            case MOUNTAIN: this.themeImage = TodoThemeImage.MOUNTAIN;
-            case SEOULTOWER: this.themeImage = TodoThemeImage.SEOULTOWER;
-            case BUS: this.themeImage = TodoThemeImage.BUS;
-            case AIRPLANE: this.themeImage = TodoThemeImage.AIRPLANE;
-            case HOUSE: this.themeImage = TodoThemeImage.HOUSE;
-            case NTH: this.themeImage = TodoThemeImage.NTH;
-            */
+
     }
 
 
@@ -62,6 +46,8 @@ public class TodoTheme {
         return TodoThemeInfo;
     }
 
+
+    //인스턴스변수반환메서드
     public TodoThemeColor getThemeColor() {
         return themeColor;
     }

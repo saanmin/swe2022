@@ -13,21 +13,34 @@ public class Demo {
         TodoTask t2 = new TodoTask("Accounting");
         TodoTask t3 = new TodoTask("TaxLaw");
         TodoTask t4 = new TodoTask("FinancialManagement");
-        list1.addtoTodoTasks(t4);
         list1.addtoTodoTasks(t1);
         list1.addtoTodoTasks(t2);
         list1.addtoTodoTasks(t3);
+        list1.addtoTodoTasks(t4);
+
 
         //각 task별로 기한설정하기
         t1.setDeadline(2017,11,10);
-        t3.setDeadline(2017,11,19);
+        t2.setDeadline(2017,11,4);
+        t3.setDeadline(2017,11,4);
+        t4.setDeadline(2017, 12,25);
+
+        t1.setDone(true);
+        t4.setDone(true);
+
+        list1.getListInfo();
 
         //각 list정렬해보기
-        list1.doSort();
+        list1.doSort(TodoList.TodoTaskSortingMethodop.SORTINGMETHOD_BY_ISDONE);
+
+        list1.getListInfo();
+
+
+        /*
 
         //list안의 task삭제
         list1.deleteTodoTask(t4);
-        //list1.getListInfo();
+        list1.getListInfo();
 
 
         //Theme변경해보기
@@ -41,7 +54,7 @@ public class Demo {
 
 
         //saanmin.getTodoList();
-        /*
+
         TodoList list2 = new TodoList("things to buy");
         TodoTask s1 = new TodoTask("apple 4");
         TodoTask s2 = new TodoTask("shampoo");
@@ -59,10 +72,10 @@ public class Demo {
 
 
         saanmin.getTodoList();
-        */
 
 
-        /*
+
+
         javatask.setDone(true);
         list1.setListName("javaAssignments");
         javatask.setDeadline(2017,5,6);
@@ -70,6 +83,8 @@ public class Demo {
         t1.settingThemecolor("red");
         list1.setTheme(t1);
         list1.getTodoTasks();
+
+
 
          */
 
