@@ -10,12 +10,12 @@ package kr.co.saanmin;
 
 import java.awt.Color;
 
-public class Theme {
-    private ThemeImage backimage;
+public class TodoTheme {
+    private TodoThemeImage backimage;
     private Color themecolor;
 
     //생성자
-    public Theme(){
+    public TodoTheme(){
         themecolor = Color.blue;
     }
 

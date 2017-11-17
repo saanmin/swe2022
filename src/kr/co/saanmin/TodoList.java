@@ -2,7 +2,7 @@ package kr.co.saanmin;
 
 /* <구현방식>
 TodoList
-인스턴스변수 : 이름(String, 생성자) , 테마(Theme, 기본) , 태스크리스트(ArrayList, null)
+인스턴스변수 : 이름(String, 생성자) , 테마(TodoTheme, 기본) , 태스크리스트(ArrayList, null)
             정렬방향(데이터타입, 0(unsorted))
 메서드 : 생성자, 이름변경(setName), 테마변경(setTheme), 태스크리스트추가(addtoTodoTasks), 정렬(doSort),
        테스크리스트리턴(getTodoTasks), task삭제deleteTask()
@@ -14,14 +14,14 @@ import java.util.Collections;
 public class TodoList {
     //인스턴스변수
     private String listName; //mutable
-    private Theme listTheme; //mutable
+    private TodoTheme listTheme; //mutable
     private ArrayList<TodoTask> todoTasks; //mutable
     private boolean listSorted; //mutable
 
     //생성자
     public TodoList(String name) {
         this.listName = name;
-        Theme defaultTheme = new Theme();
+        TodoTheme defaultTheme = new TodoTheme();
         this.listTheme = defaultTheme;
         this.todoTasks = new ArrayList<>();
         this.listSorted = false;
@@ -32,7 +32,7 @@ public class TodoList {
         this.listName = name1;
     }
 
-    public void setTheme(Theme newtheme) {
+    public void setTheme(TodoTheme newtheme) {
         this.listTheme = newtheme;
     }
 
@@ -71,7 +71,7 @@ public class TodoList {
     public void getListInfo() { //현재까지의 상황 확인용
         int k = this.todoTasks.size();
         System.out.println("ListName : " + this.getListname());
-        System.out.println("List Theme : " + this.getListTheme().toString());
+        System.out.println("List TodoTheme : " + this.getListTheme().toString());
         for (int i = 0; i < k; i++) {
             System.out.println("Task" + (i + 1) + " : " + todoTasks.get(i).getTaskname());
             System.out.println("deadline of Task" + i + " : " + todoTasks.get(i).getDeadline());
@@ -84,7 +84,7 @@ public class TodoList {
 
     //인스턴스변수반환
 
-    public Theme getListTheme() {
+    public TodoTheme getListTheme() {
         return listTheme;
     }
 
