@@ -4,23 +4,41 @@ public class Demo {
     public static void main(String[] arg){
         App saanmin = new App("saanmin");
 
+        //list1생성 App에다가 추가 list1 꾸미기
         TodoList list1 = new TodoList("Assignments");
-        TodoTask t1 = new TodoTask("java1110");
-        TodoTask t4 = new TodoTask("zoo123");
+        saanmin.addTodoList(list1);
+
+
+        TodoTask t1 = new TodoTask("Java");
+        TodoTask t2 = new TodoTask("Accounting");
+        TodoTask t3 = new TodoTask("TaxLaw");
+        TodoTask t4 = new TodoTask("FinancialManagement");
         list1.addtoTodoTasks(t4);
         list1.addtoTodoTasks(t1);
-        TodoTask t2 = new TodoTask("taxlawclass1111");
-        TodoTask t3 = new TodoTask("FinancialManagement");
         list1.addtoTodoTasks(t2);
         list1.addtoTodoTasks(t3);
+
+        //각 task별로 기한설정하기
         t1.setDeadline(2017,11,10);
         t3.setDeadline(2017,11,19);
-        //list1.getListInfo();
+
+        //각 list정렬해보기
         list1.doSort();
-        //list1.getListInfo();
+
+        //list안의 task삭제
         list1.deleteTodoTask(t4);
+        //list1.getListInfo();
+
+
+        //Theme변경해보기
+        list1.getListTheme().settingThemecolor(TodoThemeColor.PURPLE);
+        list1.getListTheme().settingThemeImage(TodoThemeImage.AIRPLANE);
         list1.getListInfo();
-        saanmin.addTodoList(list1);
+        //setTheme으로 한번에 구현하고싶을 때는?
+        TodoTheme favoriteTheme = new TodoTheme(TodoThemeColor.RED, TodoThemeImage.HOUSE);
+        list1.setTheme(favoriteTheme);
+        list1.getListInfo();
+
 
         //saanmin.getTodoList();
         /*
