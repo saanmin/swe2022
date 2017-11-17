@@ -10,6 +10,9 @@ package kr.co.saanmin;
  */
 
 public class TodoTheme {
+    public enum TodoThemeColor {BLUE, RED, PURPLE, GREEN, SKYBLUE}
+    public enum TodoThemeImage {MOUNTAIN, SEOULTOWER, BUS, AIRPLANE, HOUSE, NTH}
+
     private TodoThemeImage themeImage;
     private TodoThemeColor themeColor;
 
@@ -32,7 +35,7 @@ public class TodoTheme {
         this.themeColor = a;
     }
 
-    //그림변경메서드 : enum ...switch로 구현해봄(사실 같은거).
+    //그림변경메서드
     public void settingThemeImage(TodoThemeImage b){
         this.themeImage = b;
 

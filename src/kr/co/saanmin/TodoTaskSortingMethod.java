@@ -20,10 +20,10 @@ class TNSorting implements Comparator<TodoTask>{
 }
 
 class DLSorting implements Comparator<TodoTask> {
-    @Override //기한순으로
+    @Override //기한 순으로 deadline이 null인경우 맨위로 위치
     public int compare(TodoTask o1, TodoTask o2) {
         int result = o1.getDeadline().compareTo(o2.getDeadline());
-        return result ;
+        return result;
     }
 }
 

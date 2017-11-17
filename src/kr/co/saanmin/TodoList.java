@@ -5,7 +5,7 @@ TodoList
 인스턴스변수 : 이름(String, 생성자) , 테마(TodoTheme, 기본) , 태스크리스트(ArrayList, null)
             정렬방향(데이터타입, 0(unsorted))
 메서드 : 생성자, 이름변경(setName), 테마변경(setTheme), 태스크리스트추가(addtoTodoTasks), 정렬(doSort),
-       테스크리스트리턴(getTodoTasks), task삭제deleteTask()
+       정렬반대로하는메서드(doReverseSort), 테스크리스트리턴(getTodoTasks), task삭제deleteTask()
  */
 
 import java.util.ArrayList;
@@ -21,6 +21,7 @@ public class TodoList {
     //생성자
     public TodoList(String name) {
         this.listName = name;
+        this.todoTasks = null;
         TodoTheme defaultTheme = new TodoTheme();
         this.listTheme = defaultTheme;
         this.todoTasks = new ArrayList<>();
@@ -54,6 +55,24 @@ public class TodoList {
             case SORTINGMETHOD_BY_TN:Collections.sort(this.todoTasks , new TNSorting()); break;
         }
     }
+    public void doReverseSort(){
+        Collections.reverse(this.todoTasks);
+    }
+
+    public void getUndoneTodoList () {
+        ArrayList<TodoTask> undoneTodoList = new ArrayList<>();
+        for (TodoTask a : this.todoTasks) {
+            if (!(a.getdone())) {
+                undoneTodoList.add(a);
+            }
+        }
+        System.out.println("* * * * * * * * * * * * *");
+        System.out.println("UnFinished TodoList");
+        System.out.println("* * * * * * * * * * * * *");
+
+        for(TodoTask a : undoneTodoList){ a.getTodoTaskInfo();}
+
+    }
 
     public void deleteTodoTask(TodoTask t1){
         if (!(this.todoTasks.contains(t1)) ) {System.out.println("존재하지 않는 항목");}
@@ -65,16 +84,14 @@ public class TodoList {
         System.out.println("* * * * * * * * * * * * *");
         System.out.println("ListName : " + this.getListname());
         System.out.println("List TodoTheme : " + this.getListTheme().toString());
+        System.out.println("* * * * * * * * * * * * *");
         if (this.todoTasks.isEmpty()){System.out.println("목록이 비어있습니다. 할일을 추가하세요");}
         else {
-        for (int i = 0; i < k; i++) {
-            System.out.println("Task" + (i + 1) + " : " + todoTasks.get(i).getTaskname());
-            System.out.println("deadline of Task" + i + " : " + todoTasks.get(i).getDeadline());
-            System.out.println("Is it done ? " + todoTasks.get(i).getdone());
-            System.out.println("-------------------");
-
+            for (TodoTask a : this.todoTasks) {
+            a.getTodoTaskInfo();
+            }
         }
-    }}
+    }
 
     //인스턴스변수반환
 
@@ -84,6 +101,10 @@ public class TodoList {
 
     public String getListname() {
         return this.listName;
+    }
+
+    public ArrayList<TodoTask> showedTodoTasks() {
+        return this.todoTasks;
     }
 }
 

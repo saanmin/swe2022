@@ -6,7 +6,8 @@ TodoTask
 메서드 : 생성자(TodoTask), 날짜변경(setDeadline), 완료상태변경(setDone), 이름변경(setTaskName),
 
 가정1 : deadline 즉 완료날짜는 연,월,일만 설정할 수 있고 시간 단위는 안된다고 가정.
-가정 :
+
+주의 : deadline의 경우, 지정되지 않으면 null값으로 되어있기 때문에, 항상 쓰이는 곳에서는 할당해주고시작. 또는 고려 필요
  */
 
 
@@ -38,6 +39,17 @@ public class TodoTask {
         this.isDone = status;
     }
 
+    private boolean needToBeAlarmed(){
+        boolean needToBeAlarmed = false;
+        Date now = new Date();
+        while (true) {
+            if (this.deadline == null) break;
+            int a = deadline.compareTo(now);
+            if (a>0){ needToBeAlarmed = false;}
+            else {needToBeAlarmed = true;} break;}
+        return  needToBeAlarmed;
+    }
+
     public void setTaskName(String settingname){
         this.taskname = settingname;
     }
@@ -48,12 +60,29 @@ public class TodoTask {
     }
     public Date getGeneratedDate(){return this.generatedDate;}
     public String getDeadline(){
+        if (!(this.deadline == null)){
         int year1 = deadline.getYear() + 1900;
         int month1 = deadline.getMonth() + 1 ;
         int date1 = deadline.getDate();
         String yyyymmdd = year1 + "/" +month1 +"/" +date1;
-        return yyyymmdd;
-    }
+        return yyyymmdd; } else{return "";} }
+
     public Boolean getdone() { return this.isDone; }
 
+    public void getTodoTaskInfo(){
+        System.out.println("Taskname : " + this.getTaskname());
+        System.out.println("deadline : " + this.getDeadline());
+        System.out.println("Is it done ? " + this.getdone());
+        System.out.println("-------------------");
+
+    }
+
+    //task만 Demo중
+    public static void main (String[] arg){
+        TodoTask t10 = new TodoTask("yoyo");
+        t10.getTodoTaskInfo();
+        t10.setDeadline(2017,11,19);
+        System.out.println(t10.needToBeAlarmed());
+    }
 }
+

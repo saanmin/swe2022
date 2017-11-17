@@ -20,20 +20,29 @@ public class Demo {
 
 
         //각 task별로 기한설정하기
-        t1.setDeadline(2017,11,10);
-        t2.setDeadline(2017,11,4);
-        t3.setDeadline(2017,11,4);
+        //t1.setDeadline(2017,11,10);
+        t2.setDeadline(2016,11,4);
+        //t3.setDeadline(2017,11,4);
         t4.setDeadline(2017, 12,25);
+
+
 
         t1.setDone(true);
         t4.setDone(true);
 
-        list1.getListInfo();
+        //list1.getListInfo();
 
         //각 list정렬해보기
-        list1.doSort(TodoList.TodoTaskSortingMethodop.SORTINGMETHOD_BY_ISDONE);
+        list1.doSort(TodoList.TodoTaskSortingMethodop.SORTINGMETHOD_BY_DL);
 
-        list1.getListInfo();
+        //list1.getListInfo();
+
+        //list1.doReverseSort();
+
+        //list1.getUndoneTodoList();
+
+
+        //list1.getListInfo();
 
 
         /*
