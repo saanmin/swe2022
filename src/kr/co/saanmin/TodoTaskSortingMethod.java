@@ -10,6 +10,7 @@ package kr.co.saanmin;
  */
 
 import java.util.Comparator;
+import java.util.Date;
 
 class TNSorting implements Comparator<TodoTask>{
     @Override //TodoTask의 taskname 알파벳순으로
@@ -34,6 +35,7 @@ class GDSorting implements Comparator<TodoTask>{
         return result;
     }
 }
+
 
 class IsDoneSorting implements Comparator<TodoTask>{
     @Override //미완료된 순으로

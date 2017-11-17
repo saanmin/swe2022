@@ -30,12 +30,12 @@ public class Demo {
         t1.setDone(true);
         t4.setDone(true);
 
-        //list1.getListInfo();
+        list1.getListInfo();
 
         //각 list정렬해보기
         list1.doSort(TodoList.TodoTaskSortingMethodop.SORTINGMETHOD_BY_DL);
 
-        //list1.getListInfo();
+        list1.getListInfo();
 
         //list1.doReverseSort();
 

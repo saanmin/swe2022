@@ -49,13 +49,13 @@ public class TodoList {
 
     public void doSort(TodoTaskSortingMethodop methodOp){
         switch (methodOp){
-            case SORTINGMETHOD_BY_DL:Collections.sort(this.todoTasks , new DLSorting()); break;
+            case SORTINGMETHOD_BY_DL:Collections.sort(this.todoTasks , new DLSorting());break;
             case SORTINGMETHOD_BY_GD:Collections.sort(this.todoTasks , new GDSorting()); break;
             case SORTINGMETHOD_BY_ISDONE:Collections.sort(this.todoTasks , new IsDoneSorting()); break;
             case SORTINGMETHOD_BY_TN:Collections.sort(this.todoTasks , new TNSorting()); break;
         }
     }
-    public void doReverseSort(){
+    public void doReverseSort(){ //오름차순, 내림차순 순서 바꿀 때 그냥 reverse로 해결.
         Collections.reverse(this.todoTasks);
     }
 
@@ -80,7 +80,6 @@ public class TodoList {
     }
 
     public void getListInfo() { //현재까지의 상황 확인용
-        int k = this.todoTasks.size();
         System.out.println("* * * * * * * * * * * * *");
         System.out.println("ListName : " + this.getListname());
         System.out.println("List TodoTheme : " + this.getListTheme().toString());
