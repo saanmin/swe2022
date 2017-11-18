@@ -16,10 +16,10 @@ import java.util.Date;
 
 public class TodoTask {
     private String taskname; //mutable
-    private Date deadline; //mutable
+    private Date deadline; //mutable, null주의
     private boolean isDone; //mutable
     private final Date generatedDate; //immutable
-    private Date reminderDate;
+    private Date reminderDate; //mutable, null주의
 
     //생성자
     public TodoTask(String taskname){

@@ -90,7 +90,7 @@ public class TodoList {
         if (this.todoTasks.isEmpty()){System.out.println("목록이 비어있습니다. 할일을 추가하세요");}
         else {
             for (TodoTask a : this.todoTasks) {
-            a.getTodoTaskInfo();
+            a.getTodoTaskInfo(); //Task의 메서드로 넘겨버림
             }
         }
     }

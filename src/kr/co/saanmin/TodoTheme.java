@@ -31,7 +31,7 @@ public class TodoTheme {
 
 
     //색 변경 메서드
-    public void settingThemecolor(TodoThemeColor a){
+    public void settingThemeColor(TodoThemeColor a){
         this.themeColor = a;
     }
 
