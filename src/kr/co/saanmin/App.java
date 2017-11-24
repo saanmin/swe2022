@@ -25,7 +25,7 @@ public class App {
         }
     }
 
-    public void viewTodoList(){
+    public void viewTodoList(){ //3주차 print
         for (TodoList a : this.appTodoList){
             int sizeOfTodoList = a.getTodoTasks().size();
             String result = String.format("- %s %d",a.getListname(),sizeOfTodoList);

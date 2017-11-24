@@ -1,13 +1,5 @@
 package kr.co.saanmin;
 
-/* <구현방식>
-TodoList
-인스턴스변수 : 이름(String, 생성자) , 테마(TodoTheme, 기본) , 태스크리스트(ArrayList, null)
-            정렬방향(데이터타입, 0(unsorted))
-메서드 : 생성자, 이름변경(setName), 테마변경(setTheme), 태스크리스트추가(addtoTodoTasks), 정렬(doSort),
-       정렬반대로하는메서드(doReverseSort), 테스크리스트리턴(getTodoTasks), task삭제deleteTask()
- */
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -82,6 +74,12 @@ public class TodoList {
         this.todoTasks.remove(t1);
     }
 
+    public void viewTodoTasks(){
+        for( TodoTask a : this.todoTasks){
+            a.viewTodoTask();
+        }
+
+    }
 
     //현재까지의 상황 확인용 : print로 상태보기
     public void getListInfo() {

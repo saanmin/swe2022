@@ -1,14 +1,8 @@
 package kr.co.saanmin;
 
-/* <구현방식>
-TodoTask
-인스턴스변수(데이터타입, 기본값) : 이름(String, 생성자), 생성날짜(Date, 생성지 지정), 완료날짜(Date, 생성시), 완료여부(Boolean, false) 등등
-메서드 : 생성자(TodoTask), 날짜변경(setDeadline), 완료상태변경(setDone), 이름변경(setTaskName) 등등
+/*
 
-가정1 : deadline 즉 완료날짜는 연,월,일만 설정할 수 있고 시간 단위는 안된다고 가정.
 
-주의! : deadline, reminderDate의 경우, 지정되지 않으면 null값으로 되어있기 때문에, 항상 쓰이는 곳에서는 할당해주고시작.
-     또는 고려 필요 --- 보통 null에러는 다 이것때문임.
  */
 
 
@@ -103,6 +97,20 @@ public class TodoTask {
         int date1 = a.getDate();
         String yyyymmdd = year1 + "/" +month1 +"/" +date1;
         return yyyymmdd;
+
+    }
+
+    public void viewTodoTask(){
+        String doneCharacter;
+        if (this.isDone) {
+            doneCharacter = "O";
+        }
+        else{
+            doneCharacter = "-";};
+        String result = String.format("[%s] %s",doneCharacter, this.taskname );
+        if (this.deadline != null) { result = result+forPrintTheDate(this.deadline)+",";};
+        if (this.reminderDate != null) { result = result+" 알림";};
+        System.out.println(result);
 
     }
 
