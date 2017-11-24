@@ -75,8 +75,10 @@ public class TodoList {
 
     }
 
-    public void deleteTodoTask(TodoTask t1){
-        if (!(this.todoTasks.contains(t1)) ) {System.out.println("존재하지 않는 항목");}
+    public void deleteTodoTask(TodoTask t1) {
+        if (!(this.todoTasks.contains(t1))) {
+            System.out.println("존재하지 않는 항목");
+        }
         this.todoTasks.remove(t1);
     }
 
@@ -105,7 +107,7 @@ public class TodoList {
         return this.listName;
     }
 
-    public ArrayList<TodoTask> showedTodoTasks() {
+    public ArrayList<TodoTask> getTodoTasks() {
         return this.todoTasks;
     }
 }

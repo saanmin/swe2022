@@ -25,4 +25,13 @@ public class App {
         }
     }
 
+    public void viewTodoList(){
+        for (TodoList a : this.appTodoList){
+            int sizeOfTodoList = a.getTodoTasks().size();
+            String result = String.format("- %s %d",a.getListname(),sizeOfTodoList);
+            System.out.println(result);
+        }
+    }
+
+
 }
