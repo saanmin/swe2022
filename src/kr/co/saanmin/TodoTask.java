@@ -1,11 +1,5 @@
 package kr.co.saanmin;
 
-/*
-
-
- */
-
-
 import java.util.Date;
 
 public class TodoTask {
