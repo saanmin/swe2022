@@ -74,25 +74,9 @@ public class TodoList {
         this.todoTasks.remove(t1);
     }
 
-    public void viewTodoTasks(){
-        for( TodoTask a : this.todoTasks){
-            a.viewTodoTask();
-        }
-
-    }
-
-    //현재까지의 상황 확인용 : print로 상태보기
-    public void getListInfo() {
-        System.out.println("* * * * * * * * * * * * *");
-        System.out.println("ListName : " + this.getListname());
-        System.out.println("List TodoTheme : " + this.getListTheme().toString());
-        System.out.println("* * * * * * * * * * * * *");
-        if (this.todoTasks.isEmpty()){System.out.println("목록이 비어있습니다. 할일을 추가하세요");}
-        else {
-            for (TodoTask a : this.todoTasks) {
-            a.getTodoTaskInfo(); //Task의 메서드로 넘겨버림
-            }
-        }
+    public void viewTodoTasks() {
+        if (this.todoTasks.size() == 0){System.out.println("목록이 비어있습니다. 할일을 추가하세요");}
+        else{ for( TodoTask a : this.todoTasks){ a.viewTodoTask(); }}
     }
 
     //인스턴스변수반환
@@ -107,6 +91,21 @@ public class TodoList {
 
     public ArrayList<TodoTask> getTodoTasks() {
         return this.todoTasks;
+    }
+
+
+    //현재까지의 상황 확인용 : print로 상태보기 --- 과제와 불필요한 메서드....self확인용
+    public void getListInfo() {
+        System.out.println("* * * * * * * * * * * * *");
+        System.out.println("ListName : " + this.getListname());
+        System.out.println("List TodoTheme : " + this.getListTheme().toString());
+        System.out.println("* * * * * * * * * * * * *");
+        if (this.todoTasks.isEmpty()){System.out.println("목록이 비어있습니다. 할일을 추가하세요");}
+        else {
+            for (TodoTask a : this.todoTasks) {
+                a.getTodoTaskInfo(); //Task의 메서드로 넘겨버림
+            }
+        }
     }
 }
 

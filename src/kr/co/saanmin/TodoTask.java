@@ -76,7 +76,7 @@ public class TodoTask {
         return this.taskname;
     }
     public Date getGeneratedDate(){return this.generatedDate;}
-    public Date getDeadline(){
+    public Date getDeadline() {
         if (deadline == null) return null;
         return this.deadline;}
 
@@ -111,7 +111,6 @@ public class TodoTask {
         if (this.deadline != null) { result = result+forPrintTheDate(this.deadline)+",";};
         if (this.reminderDate != null) { result = result+" 알림";};
         System.out.println(result);
-
     }
 
     public void getTodoTaskInfo(){
