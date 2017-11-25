@@ -28,10 +28,14 @@ public class Demo {
 
         /*
          3주차 과제 요구사항
-         list:리스트이름 을 쓰는게 그 리스트에 접근하는 것으로 findAppTodoList라는 메서드를 통해
+         @@ list:리스트이름 을 쓰는게 그 리스트에 접근하는 것으로 findAppTodoList라는 메서드를 통해
          콘솔창에서 입력받은 리스트이름과 같은 이름을 갖는 객체를 찾아내서 그 리스트를 workOnList로 보고
-         addTodo의 기능을 해당 workOnList에 대해 실행.
-         즉, addTodo를 하기 위해서는 반드시 우선적으로 list: 를 콘솔창에 입력받은 뒤에 가능하다.
+         addTodo 등의 기능을 해당 workOnList에 대해 실행.
+         @@ 즉, addTodo, complete, incomplete를 하기 위해서는 우선적으로 list: 를 콘솔창에
+         입력받은 뒤에 가능하다.
+         @@ 만약 작업중인 list를 변경하고 싶다면, list:원하는_리스트이름 을 써서 다른 리스트로 workOnList를
+         변경할 수 있음
+
          */
 
 
@@ -70,7 +74,28 @@ public class Demo {
                     workOnList.viewTodoTasks();
                 }
 
-
+                if (c.startsWith("complete:")){ //<i-campus 요구사항5>
+                    try{
+                    String completeTaskName = c.substring(9).trim();
+                    TodoTask completedTask = workOnList.findTodoTask(completeTaskName);
+                    completedTask.setDone(true);}
+                    catch (NullPointerException ex){System.out.println("존재하지 않는 task");
+                    throw new NullPointerException();}finally {
+                        workOnList.viewTodoTasks();
+                        continue;
+                    }
+                }
+                if (c.startsWith("incomplete:")){ //<i-campus 요구사항6>
+                    try{
+                        String incompleteTaskName = c.substring(11).trim();
+                        TodoTask completedTask = workOnList.findTodoTask(incompleteTaskName);
+                        completedTask.setDone(false);}
+                    catch (NullPointerException ex){System.out.println("존재하지 않는 task");
+                        throw new NullPointerException();}finally {
+                        workOnList.viewTodoTasks();
+                        continue;
+                    }
+                }
 
                 }
             }

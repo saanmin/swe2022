@@ -131,6 +131,15 @@ public class TodoTask {
 
     }
 
+    private void setHourMin(String DorR, int hour, int min){
+        if (DorR =="D") {
+            this.deadline.setHours(hour);
+            this.deadline.setMinutes(min);}
+        if (DorR =="R") {
+            this.reminderDate.setHours(hour);
+            this.reminderDate.setMinutes(min);}
+    }
+
     public void viewTodoTask(){
         String doneCharacter;
         if (this.isDone) {
@@ -139,8 +148,8 @@ public class TodoTask {
         else{
             doneCharacter = "-";};
         String result = String.format("[%s] %s",doneCharacter, this.taskname );
-        if (this.deadline != null) { result = result+" "+forPrintTheDate(this.deadline)+",";};
-        if (this.reminderDate != null) { result = result+" "+" 알림";};
+        if (this.deadline != null) { result = result+" "+forPrintTheDate(this.deadline);};
+        if (this.reminderDate != null) { result = result+", "+"알림";};
         System.out.println(result);
     }
 
@@ -164,5 +173,6 @@ public class TodoTask {
         System.out.println(t10.isAlarm());
 
     }
+
 }
 

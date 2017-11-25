@@ -35,6 +35,15 @@ public class TodoList {
         //this.listSorted = false; //새로운 테스크가 추가되는 순간 sorted는 false됨
     }
 
+    public TodoTask findTodoTask(String completeTaskName) {
+        TodoTask result = null;
+        for (TodoTask t : todoTasks) {
+            boolean k = t.getTaskname().equals(completeTaskName);
+            if (k) { result = t; }
+        }
+        return result;
+    }
+
     //sorting방법이 4가지 밖에 없어서 enum한번해봄. if쓰느니 차라리 switch.
     public enum TodoTaskSortingMethodop {
         SORTINGMETHOD_BY_TN,SORTINGMETHOD_BY_DL,SORTINGMETHOD_BY_GD,SORTINGMETHOD_BY_ISDONE;
