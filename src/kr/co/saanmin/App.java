@@ -1,14 +1,13 @@
 package kr.co.saanmin;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class App {
     private ArrayList<TodoList> appTodoList;
-    private String appName;
+    private String appOwner;
 
     public App(String userName) {
-        this.appName = userName;
+        this.appOwner = userName;
         appTodoList = new ArrayList<TodoList>();
     }
 

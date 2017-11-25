@@ -1,13 +1,12 @@
 package kr.co.saanmin;
 
-import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Demo {
-    public static void main(String[] arg) throws Exception {
+    public static void main(String[] arg) {
 
         App saanmin = new App("saanmin");
-        TodoList l1 = new TodoList("ASSIGNMENT");
+        TodoList l1 = new TodoList("Assignment");
         TodoTask t1 = new TodoTask("Java");
         TodoTask t2 = new TodoTask("Taxlaw");
         TodoTask t3 = new TodoTask("Financial Management");
@@ -27,24 +26,32 @@ public class Demo {
         l2.addtoTodoTasks(t7);
         saanmin.addTodoList(l2);
 
-        // 3주차 과제 요구사항
+        /*
+         3주차 과제 요구사항
+         list:리스트이름 을 쓰는게 그 리스트에 접근하는 것으로 findAppTodoList라는 메서드를 통해
+         콘솔창에서 입력받은 리스트이름과 같은 이름을 갖는 객체를 찾아내서 그 리스트를 workOnList로 보고
+         addTodo의 기능을 해당 workOnList에 대해 실행.
+         즉, addTodo를 하기 위해서는 반드시 우선적으로 list: 를 콘솔창에 입력받은 뒤에 가능하다.
+         */
 
-       Scanner in = new Scanner(System.in).useDelimiter("\\n");
+
+        Scanner in = new Scanner(System.in).useDelimiter("\\n");
 
         saanmin.viewTodoList(); //<i-campus 요구사항 1>
 
         while (true) {
             in.reset();
+            TodoList workOnList = null;
+
             while (in.hasNextLine()) {
                 String c = in.nextLine();
-                TodoList workOnList;
                 if (c.startsWith("addList:")){ //<i-campus 요구사항 2>
                     String newListName = c.substring(8).trim();
                     saanmin.addTodoList(new TodoList(newListName));
                     saanmin.viewTodoList();
                 }
 
-                if (c.startsWith("list:")){
+                if (c.startsWith("list:")){ //<i-campus 요구사항 3>
                     String workOnListName = c.substring(5).trim();
                     workOnList = saanmin.findAppTodoList(workOnListName);
                     try {workOnList.viewTodoTasks();}
@@ -55,40 +62,18 @@ public class Demo {
                         continue;
                     }
                 }
-
-                if (c.startsWith("addTodo:")){
+                if (c.startsWith("addTodo:")){ //<i-campus 요구사항4>
+                    //반드시 list:를 해서 진입후 써야함
                     String strTodoTask = c.substring(8).trim();
-                    String[] stringsOfTodoTask = strTodoTask.split(",");
-                    System.out.println(stringsOfTodoTask[1]);
-                    //TodoTask newlyTodoTask = new TodoTask();
-                    //workOnList.addtoTodoTasks(newlyTodoTask);
+                    TodoTask todoTaskForAdding = TodoTask.stringsOfTodoTask(strTodoTask);
+                    workOnList.addtoTodoTasks(todoTaskForAdding);
+                    workOnList.viewTodoTasks();
                 }
 
 
 
-
-
-                    //if (!keys.containsKey(c) || "exit".equals(c)) break exit;
-                    //keys.get(c).click();
-                    //System.out.println(c);
                 }
             }
-
-
-
-
-
-        /*
-        TodoList l1 = new TodoList("ASSIGNMENT");
-        TodoTask t5 = new TodoTask("Java");
-        TodoTask t2 = new TodoTask("Taxlaw");
-        TodoTask t3 = new TodoTask("Financial Management");
-
-        l1.addtoTodoTasks(t5);
-        l1.addtoTodoTasks(t2);
-        l1.addtoTodoTasks(t3);
-         */
-
 
 
     }

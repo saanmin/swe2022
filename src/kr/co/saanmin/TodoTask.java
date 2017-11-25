@@ -23,12 +23,42 @@ public class TodoTask {
         this.generatedDate = new Date();
     }
 
+    //스트링쭈루룩받는경우 모든 정보 포함으로
+    public static TodoTask stringsOfTodoTask(String strTodoTask){
+        String[] stringsOfInfo = strTodoTask.split(",");
+        TodoTask aaa = new TodoTask("");
+        int a = stringsOfInfo.length;
+        for (int i=0; i<a; i++) {
+            switch (i) {
+                case 0: //이름설정하기
+                    aaa.setTaskName(stringsOfInfo[0]);
+                    break;
+                case 1: //deadline설정하기
+                    String[] deadlineStr = stringsOfInfo[1].split("\\.");
+                    //헐..... "."을 split하려면 저거 두개 붙였어야했어ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
+                    int year1 = Integer.parseInt(deadlineStr[0]);
+                    int month1 = Integer.parseInt(deadlineStr[1]);
+                    int date1 = Integer.parseInt(deadlineStr[2]);
+                    aaa.setDeadline(year1, month1, date1);
+                    break;
+                case 2: //알림설정하기
+                    String[] reminderStr = stringsOfInfo[1].split("\\.");
+                    //헐..... "."을 split하려면 저거 두개 붙였어야했어ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
+                    int year2 = Integer.parseInt(reminderStr[0]);
+                    int month2 = Integer.parseInt(reminderStr[1]);
+                    int date2 = Integer.parseInt(reminderStr[2]);
+                    aaa.setReminderDate(year2,month2,date2);
+            }
+        }
+        return aaa;
+    }
+
     //메서드
-    public void setDeadline(int year1, int month1, int date1){
+    public void setDeadline (int year1, int month1, int date1){
         this.deadline = new Date();
         this.deadline.setYear(year1-1900);
-        this.deadline.setDate(date1);
         this.deadline.setMonth(month1-1);
+        this.deadline.setDate(date1);
     }
 
     public void removeDeadline(){
@@ -46,6 +76,7 @@ public class TodoTask {
         this.reminderDate.setDate(date1);
         this.reminderDate.setMonth(month1-1);
     }
+
 
     public void removeReminderDate(){
         this.reminderDate = null;
@@ -108,8 +139,8 @@ public class TodoTask {
         else{
             doneCharacter = "-";};
         String result = String.format("[%s] %s",doneCharacter, this.taskname );
-        if (this.deadline != null) { result = result+forPrintTheDate(this.deadline)+",";};
-        if (this.reminderDate != null) { result = result+" 알림";};
+        if (this.deadline != null) { result = result+" "+forPrintTheDate(this.deadline)+",";};
+        if (this.reminderDate != null) { result = result+" "+" 알림";};
         System.out.println(result);
     }
 
