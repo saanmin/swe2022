@@ -89,9 +89,10 @@ public class Demo {
                 }
 
     /*
-    12월 8일 과제 : save와 load의 메서드를 App 클래스에다가 구현해놓음. 자세한 내용은 각 메서드에 설명
-     */
+    12월 8일 과제 : save와 load의 메서드로 구현하는 것이 과제 : App 클래스에다가 구현해놓음.
+    해당사항변경 때 마다 save를 해야한다는 전제가 있다면 각 이프문의 finally 뒤에 아래의 코드를 넣을 것
 
+     */
                 if (c.startsWith("save")){
                     try{ saanmin.save();} catch (IOException e) {
                         e.printStackTrace();
