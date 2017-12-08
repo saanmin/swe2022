@@ -43,7 +43,7 @@ public class IOTest {
         //클래스 객체 쓰기
         Test t1 = new Test(10, "a1"), t2 = new Test(20, "b1");
         try {// 클래스 읽어오기
-            Path p =  Paths.get("c:/test","obj.txt");
+            Path p =  Paths.get("/Users/saanmin/Desktop","obj.txt");
             if (!Files.exists(p)) Files.createFile(p);
             ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(p));
             out.reset();

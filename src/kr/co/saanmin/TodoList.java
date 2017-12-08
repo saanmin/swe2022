@@ -1,9 +1,10 @@
 package kr.co.saanmin;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class TodoList {
+public class TodoList implements Serializable {
     //인스턴스변수
     private String listName; //mutable
     private TodoTheme listTheme; //mutable

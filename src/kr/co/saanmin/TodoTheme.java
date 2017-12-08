@@ -4,7 +4,9 @@ package kr.co.saanmin;
 
  */
 
-public class TodoTheme {
+import java.io.Serializable;
+
+public class TodoTheme implements Serializable {
     public enum TodoThemeColor {BLUE, RED, PURPLE, GREEN, SKYBLUE}
     public enum TodoThemeImage {MOUNTAIN, SEOULTOWER, BUS, AIRPLANE, HOUSE, NTH}
 

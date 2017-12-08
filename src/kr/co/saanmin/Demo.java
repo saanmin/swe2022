@@ -1,30 +1,19 @@
 package kr.co.saanmin;
 
+import com.sun.tools.javac.comp.Todo;
+
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] arg) {
 
         App saanmin = new App("saanmin");
-        TodoList l1 = new TodoList("Assignment");
-        TodoTask t1 = new TodoTask("Java");
-        TodoTask t2 = new TodoTask("Taxlaw");
-        TodoTask t3 = new TodoTask("Financial Management");
-
-        l1.addtoTodoTasks(t1);
-        l1.addtoTodoTasks(t2);
-        l1.addtoTodoTasks(t3);
-        saanmin.addTodoList(l1);
-
-        TodoList l2 = new TodoList("ThingsToBuy");
-        TodoTask t5 = new TodoTask("Apple");
-        TodoTask t6 = new TodoTask("Pen");
-        TodoTask t7 = new TodoTask("Fig");
-
-        l2.addtoTodoTasks(t5);
-        l2.addtoTodoTasks(t6);
-        l2.addtoTodoTasks(t7);
-        saanmin.addTodoList(l2);
 
         /*
          3주차 과제 요구사항
@@ -99,9 +88,31 @@ public class Demo {
                     }
                 }
 
+    /*
+    12월 8일 과제 : save와 load의 메서드를 App 클래스에다가 구현해놓음. 자세한 내용은 각 메서드에 설명
+     */
+
+                if (c.startsWith("save")){
+                    try{ saanmin.save();} catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {continue;}}
+
+
+                if (c.startsWith("load")){
+                    try{ saanmin.load(); }
+                    catch (Exception e) {
+                        System.out.println("오류발생지점Demoload");
+                        e.printStackTrace(); }
+                    finally {
+                        saanmin.viewTodoList();
+                        continue; }
                 }
-            }
+
+
 
 
     }
-}
+
+
+}}}
+

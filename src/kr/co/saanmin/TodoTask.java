@@ -1,8 +1,9 @@
 package kr.co.saanmin;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TodoTask {
+public class TodoTask implements Serializable {
     private String taskname; //mutable
     private Date deadline; //mutable, null주의
     private boolean isDone; //mutable
