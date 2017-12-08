@@ -68,6 +68,14 @@ public class App implements Serializable {
         }
     }
 
+    /*
+    addList, addTask로 App을 꾸민 뒤, save 와 load를 콘솔창에 입력하는 경우 save 정상적으로 작동.
+    load도 정상적으로 불러오기가 가능. save와 load를 계속해서 사용하는 경우 원하는 대로 구현됨
+
+    다만, 처음부터 load를 해올 때가 문제임. 읽는건 되는 데, 그걸 바탕으로 그 위에다가 어떻게 응용해야할지를 모르겠음.
+    아예 새로운 리스트가 시작되어버림. 결국 load 메서드에서 리턴값으로 가장 처음에 읽은 App o1을 줘서 이걸
+    기준으로 리스트를 시작해야하는게 아닌가 의문이 들음
+     */
     public void load() throws IOException, ClassNotFoundException {
         Path p = Paths.get("/Users/saanmin/Desktop","swe2022.txt");
         //if (!Files.exists(p)) Files.createFile(p);
@@ -82,13 +90,12 @@ public class App implements Serializable {
             Object o2 = (Object) in.readObject();
             if (o2 instanceof TodoList) {
                 o2 = (TodoList) o2 ;
-            ((TodoList) o2).getTodoTasks();}
+            //((TodoList) o2).getTodoTasks();}
             if (o2 instanceof TodoTask){
                 o2 = (TodoTask) o2;
-            ((TodoTask) o2).viewTodoTask();}
             }
 
-        } catch (FileNotFoundException e){System.out.println("file not-existed");}
+        } }}catch (FileNotFoundException e){System.out.println("file not-existed");}
         catch (EOFException e){System.out.println("file loaded");}
         catch (Exception e){System.out.println("error");}
     }
